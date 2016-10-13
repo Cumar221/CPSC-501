@@ -133,7 +133,8 @@ public class Main {
 	 * - error of team is handled in this method if the team is not found  
 	 * @param input - is a scanner used to get the user's input
 	 */
-	public static void getTeamStatistics(Scanner input){									
+	public static statsCriteria getTeamStatistics(Scanner input){
+		statsCriteria statsVar = null;
 		findTeam        = null;
 		printResults    = null;
 		found           = false;
@@ -196,8 +197,11 @@ public class Main {
 					+ "\n  Ties:\t\t\t" + ties
 					+ "\n  Total Points:\t\t" +points
 					+ "\n  Total Points %:\t"+ pointPercentage + "\n\n";
+			
+			statsVar = new statsCriteria(wins, losses, ties, pointPercentage, points);
 			print.print(printResults);
 		}
+		return statsVar;
 	}	
 	/**
 	 * This handler method is invoked in the menu method
