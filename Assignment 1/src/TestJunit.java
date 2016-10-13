@@ -1,9 +1,6 @@
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.junit.Test;
-
-
 import static org.junit.Assert.*;
-
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -13,15 +10,15 @@ public class TestJunit {
 
    @Test
    public void testGetTeamStat() throws FileNotFoundException  {
+	  TeamStats teamStats = new TeamStats();
       statsCriteria statC = new statsCriteria(1690, 1866, 155, 5.82730084952028, 63683);
       
-      String str = "gb";
+      String str = "unk";
       ByteArrayInputStream bais = new ByteArrayInputStream(str.getBytes());
       System.setIn(bais);
       Scanner scanner = new Scanner(System.in);
     
-      Main.read();
-      assertTrue(EqualsBuilder.reflectionEquals(Main.getTeamStatistics(scanner),statC));
+      assertTrue(EqualsBuilder.reflectionEquals(teamStats.getTeamStatistics(scanner, Main.read()),statC));
   
       scanner.close();
    }
