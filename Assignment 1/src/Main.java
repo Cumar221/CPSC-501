@@ -104,7 +104,9 @@ public class Main {
 	public static ArrayList<Game> read() throws FileNotFoundException{								
 		File folder = new File("allYears");
 		File[] listOfFiles = folder.listFiles();
-		gameData.removeAll(gameData);
+		System.gc();
+		gameData.clear();
+		
 		Scanner scanner;
 
 		for (File file : listOfFiles) {

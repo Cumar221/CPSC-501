@@ -21,7 +21,12 @@ public class TeamStats implements gameCalculate {
 	 */
 	@Override
 	public TeamStatsObj action(Scanner input,ArrayList<Game> gameData){
-		findTeam ="\nPlease enter a team: ";			
+		findTeam ="\nPlease enter a team: ";
+		losses = 0;
+		wins = 0;
+		ties = 0;
+		pointPercentage = 0.0;
+		points = 0;
 		print.print(findTeam);
 		userInputTeam = input.next().toUpperCase();
 

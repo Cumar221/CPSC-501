@@ -31,7 +31,12 @@ public class MatchupStats implements gameCalculate{
 	 *    found or not and holds if the second cannot found
 	 * @param input - is a scanner used to get the user's input
 	 */
-	public MatchUpStatsObj action(Scanner input, ArrayList<Game> gameData){			
+	public MatchUpStatsObj action(Scanner input, ArrayList<Game> gameData){	
+		total = 0;
+		teamOneWins = 0;
+		teamTwoWins = 0;
+		teamOnePoints = 0;
+		teamTwoPoints = 0;
 		findTeamOne ="\nPlease enter the first team: ";
 		findTeamTwo ="\nPlease enter the second team:  ";								
 		print.print(findTeamOne);
