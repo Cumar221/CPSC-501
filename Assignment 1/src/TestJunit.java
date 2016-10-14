@@ -18,7 +18,7 @@ public class TestJunit {
 		   Total Points:		63683
 		   Total Points %:	5.82730084952028
 	   */
-	  TeamStats teamStats = new TeamStats();
+	  gameCalculate teamStats = new TeamStats();
       TeamStatsObj statC = new TeamStatsObj(1690, 1866, 155, 5.82730084952028, 63683);
       
       String str = "unk";
@@ -26,7 +26,7 @@ public class TestJunit {
       System.setIn(bais);
       Scanner scanner = new Scanner(System.in);
     
-      assertTrue(EqualsBuilder.reflectionEquals(teamStats.getTeamStatistics(scanner, Main.read()),statC));
+      assertTrue(EqualsBuilder.reflectionEquals(teamStats.action(scanner, Main.read()),statC));
       
       scanner.close();
    }
@@ -52,7 +52,7 @@ public class TestJunit {
 	   System.setIn(bais);
 	   Scanner scanner = new Scanner(System.in);
     
-	   assertTrue(EqualsBuilder.reflectionEquals(matchupStats.getMatchupStatistics(scanner, Main.read()), matchupStatObj));
+	   assertTrue(EqualsBuilder.reflectionEquals(matchupStats.action(scanner, Main.read()), matchupStatObj));
 	   
 	   scanner.close();
    }

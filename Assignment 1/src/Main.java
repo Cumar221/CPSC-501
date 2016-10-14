@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 /**
  * Comp 2631
@@ -15,6 +16,13 @@ public class Main {
 	private static String userInput;						
 	private static String [] gameCompnentSplit = new String[271];				
 	private static ArrayList<Game> gameData = new ArrayList<>();
+	private static final String TEAM_STATS = "T";
+	private static final String MATCHUP_STATS = "M";
+	private static final String MATCHUP_STATS_HISTORY = "H";
+	private static final String QUIT = "Q";
+	private static final String ERROR = "E";
+	private static ArrayList<String> arrList = new ArrayList<>();
+	private static gameCalculate gcal;
 	/**
 	 * This main method calls read & menu methods
 	 * - all exceptions are caught here and handled appropriately
@@ -49,31 +57,37 @@ public class Main {
 	 */
 	public static void menu(Scanner input){
 		menuMessage();
-		Scanner scanner = new Scanner(System.in);
+		gameCalculate gcal = null;
+		
 		while(input.hasNextLine()){				
-			userInput = input.next();		
-			switch(userInput.toUpperCase()){
-			case "T":
-				TeamStats teamStat = new TeamStats();
-				teamStat.getTeamStatistics(scanner,gameData);     //TO DO:: do input for lower cases
-				break;
-			case "M":
-				MatchupStats matchupStat =  new MatchupStats();
-				matchupStat.getMatchupStatistics(scanner,gameData);
-				break;
-			case "H":
-				MatchupStatHistory matchupStatH = new MatchupStatHistory();
-				matchupStatH.showMatchupHistory(scanner, gameData);
-				break;
-			case "Q":
-				System.out.println("Bye Bye");
-				return;
-			default:
-				System.out.println("\nWrong Input pal.... Please try again.");
-				break;
-			}
+			userInput = input.next();
+			gcal = gameTest(userInput);
+			gcal.action(input, gameData);
 			menuMessage();
 		}
+	}
+	private static gameCalculate gameTest(String userInput) {
+		HashMap<String, gameCalculate> test = new HashMap<>();
+		
+		test.put(TEAM_STATS, new TeamStats());
+		test.put(MATCHUP_STATS, new MatchupStats());
+		test.put(MATCHUP_STATS_HISTORY, new MatchupStatHistory());
+		test.put(QUIT, new Quit());
+		test.put(ERROR, new Exit());
+		
+		
+		arrList.add(TEAM_STATS);
+		arrList.add(MATCHUP_STATS);
+		arrList.add(QUIT);
+		arrList.add(MATCHUP_STATS_HISTORY);
+		
+		if(arrList.contains(userInput.toUpperCase())){	
+			gcal = test.get(userInput.toUpperCase());
+		}
+		else{
+			gcal = test.get("E");
+		}
+		return gcal;
 	}
 	/**
 	 * This read methods reads the files and stores it in a 2D array

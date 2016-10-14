@@ -2,7 +2,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MatchupStatHistory {
+public class MatchupStatHistory implements gameCalculate {
 
 	private String userInputTeamOne;
 	private String userInputTeamTwo;
@@ -21,7 +21,7 @@ public class MatchupStatHistory {
 	 *   prints the data to the screen
 	 * @param input - is a scanner used to receive the user's input
 	 */
-	public void showMatchupHistory(Scanner input, ArrayList<Game> gameData){						
+	public Object action(Scanner input, ArrayList<Game> gameData){						
 		findTeamOne ="\nPlease enter the first team: ";
 		findTeamTwo ="\nPlease enter the second  team: ";			
 		print.print(findTeamOne);
@@ -46,7 +46,8 @@ public class MatchupStatHistory {
 		else if(!teamTwoFound){
 			printResults ="\nI'm sorry; "+ userInputTeamTwo + " is not a valid team name. ";
 			print.print(printResults);
-		}	
+		}
+		return null;	
 	}
 		public String printResults(Game game){
 			teamOneFound = true;
