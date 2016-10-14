@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  * Comp 2631
@@ -11,21 +12,19 @@ import java.util.Scanner;
  * @author Cumar Yusuf
  */
 public class Main {
-	private static String userInput;
-	private static Scanner fileIn;			
-	private static Game[][] obj  = new Game[1000][1000];			
+	private static String userInput;						
 	private static String [] array = new String[271];				
-	private static String temp;	
-	
+	private static ArrayList<Game> gameData = new ArrayList<>();
 	/**
 	 * This main method calls read & menu methods
 	 * - all exceptions are caught here and handled appropriately
 	 * 	 with error messages   
 	 * @param args
+	 * @throws FileNotFoundException 
 	 * 	*/
-	public static void main (String args[]){ 				
-		try{
-			Scanner scanner = new Scanner(System.in);				
+	public static void main (String args[]) throws FileNotFoundException{ 				
+		try{	
+			Scanner scanner = new Scanner(System.in);
 			read();
 			menu(scanner);					
 		}	
@@ -56,17 +55,17 @@ public class Main {
 			case "T":
 				Scanner scanner = new Scanner(System.in);
 				TeamStats teamStat = new TeamStats();
-				teamStat.getTeamStatistics(scanner,obj);     //TO DO:: do input for lower cases
+				teamStat.getTeamStatistics(scanner,gameData);     //TO DO:: do input for lower cases
 				break;
 			case "M":
 				Scanner scanner2 = new Scanner(System.in);
 				MatchupStats matchupStat =  new MatchupStats();
-				matchupStat.getMatchupStatistics(scanner2,obj);
+				matchupStat.getMatchupStatistics(scanner2,gameData);
 				break;
 			case "H":
 				Scanner scanner3 = new Scanner(System.in); 
 				MatchupStatHistory matchupStatH = new MatchupStatHistory();
-				matchupStatH.showMatchupHistory(scanner3, obj);
+				matchupStatH.showMatchupHistory(scanner3, gameData);
 				break;
 			case "Q":
 				System.out.println("Bye Bye");
@@ -90,28 +89,28 @@ public class Main {
 	 * @throws FileNotFoundException - throws an exception to main if the file cannot
 	 * 									be read
 	 */
-	public static Game[][] read() throws FileNotFoundException{								
-		for(int w = 1922, y = 0; w < 2014 && y < 92; w++, y++){
-			fileIn = new Scanner ( new File ("allYears/"+w+".csv"));		
-			for(int x = 0; x < 271; x++){	
-				if(fileIn.hasNextLine()){
-					temp = fileIn.nextLine();						 																							 
-					if (temp.startsWith("Year")){
-						// Handles the first line
-					}else{				 
-						array = temp.split(",");				
-						obj[y][x] = new Game(); 
-						obj[y][x].set(Integer.valueOf(array[0]), array[1], array[2],
-								array[3],Integer.parseInt(array[4]), 
-								array[5], Integer.parseInt(array[6]),
-								array[7], array[8],Integer.parseInt(array[9]),
-								Integer.parseInt(array[10]),
-								Integer.parseInt(array[11]), Integer.parseInt(array[12])); 						 
-					}			
-				}					
-			}									
-		}
-		return obj;
+	public static ArrayList<Game> read() throws FileNotFoundException{								
+		File folder = new File("allYears");
+		File[] listOfFiles = folder.listFiles();
+		Scanner scanner;
+
+		for (File file : listOfFiles) {
+		    if (file.isFile()) {
+		    	scanner = new Scanner(file);
+		    	 while (scanner.hasNextLine()) {
+		             array = scanner.nextLine().split(",");	
+		             if(!array[0].equals("Year")){
+			             gameData.add(new Game(Integer.valueOf(array[0]), array[1], array[2],
+									array[3],Integer.parseInt(array[4]), 
+									array[5], Integer.parseInt(array[6]),
+									array[7], array[8],Integer.parseInt(array[9]),
+									Integer.parseInt(array[10]),
+									Integer.parseInt(array[11]), Integer.parseInt(array[12]))); 
+		             }
+		    	 }
+		    }
+		}	
+		return gameData;
 	}	
 	/**
 	 * This method is invoked in main and just uses print stream

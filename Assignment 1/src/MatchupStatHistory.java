@@ -1,4 +1,5 @@
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MatchupStatHistory {
@@ -10,9 +11,10 @@ public class MatchupStatHistory {
 	private String printGuide;
 	private String findTeam;
 	private String findTeam2;
-	private Boolean found;
-	private Boolean found2;
-	private int count; 
+	private Boolean found = false;
+	private Boolean found2 = false;
+	private int count = 0; 
+	private PrintStream print = new PrintStream (System.out);
 	
 
 	/**
@@ -21,13 +23,9 @@ public class MatchupStatHistory {
 	 *   prints the data to the screen
 	 * @param input - is a scanner used to receive the user's input
 	 */
-	public void showMatchupHistory(Scanner input, Game[][] obj){			
-		count = 0;
-		found = false;
-		found2 = false;			
+	public void showMatchupHistory(Scanner input, ArrayList<Game> gameData){						
 		findTeam ="\nPlease enter the first team: ";
 		findTeam2 ="\nPlease enter the second  team: ";			
-		PrintStream print = new PrintStream (System.out);
 		print.print(findTeam);
 		userInput = input.next().toUpperCase();	
 		print.print(findTeam2);
@@ -35,40 +33,37 @@ public class MatchupStatHistory {
 		printGuide ="\nHistory of "+ userInput + " vs. " +userInput2 + "\n"
 				+"Year\tWeek\tAway\tAway Score\tHome\tHome Score \n"
 				+"------------------------------------------------------------------";
-
-		for (int year = 0; year <92; year++){
-			for (int data = 1; data <272; data++){
-				if(obj[year][data] != null){
-					if(obj[year][data].getHome().equals(userInput)){
-						found = true;
-						if (obj[year][data].getAway().equals(userInput2)){	
-							found2 = true;
-							if(count == 0){
-								print.print(printGuide);
-								count++;
-							}
-							printResults = "\n" + obj[year][data].getYear() + "\t" 
-									+ obj[year][data].getWeek() + "\t" 
-									+ obj[year][data].getAway() + "\t" 
-									+ obj[year][data].getAwayScore() + "\t\t" 
-									+ obj[year][data].getHome() + "\t" 
-									+ obj[year][data].getHomeScore();			     			
-							print.print(printResults);								
-						}				
-					}			
-					else if(obj[year][data].getHome().equals(userInput2) &&
-							obj[year][data].getAway().equals(userInput)){	
-						printResults2 = "\n" + obj[year][data].getYear() 
-								+ "\t" + obj[year][data].getWeek() 
-								+ "\t" + obj[year][data].getAway() + "\t" 
-								+ obj[year][data].getAwayScore() 
-								+ "\t\t" + obj[year][data].getHome() 
-								+ "\t" + obj[year][data].getHomeScore();				
-						print.print(printResults2);											
+		
+		for(Game game : gameData){
+			if(game.getHome().equals(userInput)){
+				found = true;
+				if (game.getAway().equals(userInput2)){	
+					found2 = true;
+					if(count == 0){
+						print.print(printGuide);
+						count++;
 					}
-				}			
+					printResults = "\n" + game.getYear() + "\t" 
+							+ game.getWeek() + "\t" 
+							+ game.getAway() + "\t" 
+							+ game.getAwayScore() + "\t\t" 
+							+ game.getHome() + "\t" 
+							+ game.getHomeScore();			     			
+					print.print(printResults);								
+				}				
+			}			
+			else if(game.getHome().equals(userInput2) &&
+					game.getAway().equals(userInput)){	
+				printResults2 = "\n" + game.getYear() 
+						+ "\t" + game.getWeek() 
+						+ "\t" + game.getAway() + "\t" 
+						+ game.getAwayScore() 
+						+ "\t\t" + game.getHome() 
+						+ "\t" + game.getHomeScore();				
+				print.print(printResults2);											
 			}
-		}
+		}			
+			
 		if(!found){
 			printResults ="\nI'm sorry; "+ userInput + " is not a valid team name. ";
 			print.print(printResults);
@@ -78,4 +73,6 @@ public class MatchupStatHistory {
 			print.print(printResults);
 		}	
 	}
+	
+	
 }
