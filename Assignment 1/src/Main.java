@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class Main {
 	private static String userInput;						
-	private static String [] array = new String[271];				
+	private static String [] gameCompnentSplit = new String[271];				
 	private static ArrayList<Game> gameData = new ArrayList<>();
 	/**
 	 * This main method calls read & menu methods
@@ -49,29 +49,27 @@ public class Main {
 	 */
 	public static void menu(Scanner input){
 		menuMessage();
+		Scanner scanner = new Scanner(System.in);
 		while(input.hasNextLine()){				
 			userInput = input.next();		
 			switch(userInput.toUpperCase()){
 			case "T":
-				Scanner scanner = new Scanner(System.in);
 				TeamStats teamStat = new TeamStats();
 				teamStat.getTeamStatistics(scanner,gameData);     //TO DO:: do input for lower cases
 				break;
 			case "M":
-				Scanner scanner2 = new Scanner(System.in);
 				MatchupStats matchupStat =  new MatchupStats();
-				matchupStat.getMatchupStatistics(scanner2,gameData);
+				matchupStat.getMatchupStatistics(scanner,gameData);
 				break;
 			case "H":
-				Scanner scanner3 = new Scanner(System.in); 
 				MatchupStatHistory matchupStatH = new MatchupStatHistory();
-				matchupStatH.showMatchupHistory(scanner3, gameData);
+				matchupStatH.showMatchupHistory(scanner, gameData);
 				break;
 			case "Q":
 				System.out.println("Bye Bye");
 				return;
 			default:
-				System.out.println("\nWrong Input pal. Please try again.");
+				System.out.println("\nWrong Input pal.... Please try again.");
 				break;
 			}
 			menuMessage();
@@ -92,26 +90,29 @@ public class Main {
 	public static ArrayList<Game> read() throws FileNotFoundException{								
 		File folder = new File("allYears");
 		File[] listOfFiles = folder.listFiles();
+		gameData.removeAll(gameData);
 		Scanner scanner;
 
 		for (File file : listOfFiles) {
 		    if (file.isFile()) {
 		    	scanner = new Scanner(file);
 		    	 while (scanner.hasNextLine()) {
-		             array = scanner.nextLine().split(",");	
-		             if(!array[0].equals("Year")){
-			             gameData.add(new Game(Integer.valueOf(array[0]), array[1], array[2],
-									array[3],Integer.parseInt(array[4]), 
-									array[5], Integer.parseInt(array[6]),
-									array[7], array[8],Integer.parseInt(array[9]),
-									Integer.parseInt(array[10]),
-									Integer.parseInt(array[11]), Integer.parseInt(array[12]))); 
+		             gameCompnentSplit = scanner.nextLine().split(",");	
+		             if(!gameCompnentSplit[0].equals("Year")){
+			             gameData.add(new Game(Integer.valueOf(gameCompnentSplit[0]), 
+			             gameCompnentSplit[1], gameCompnentSplit[2],
+						 gameCompnentSplit[3],Integer.parseInt(gameCompnentSplit[4]), 
+						 gameCompnentSplit[5], Integer.parseInt(gameCompnentSplit[6]),
+						 gameCompnentSplit[7], gameCompnentSplit[8],Integer.parseInt(gameCompnentSplit[9]),
+						Integer.parseInt(gameCompnentSplit[10]),
+						Integer.parseInt(gameCompnentSplit[11]), Integer.parseInt(gameCompnentSplit[12]))); 
 		             }
 		    	 }
 		    }
 		}	
 		return gameData;
 	}	
+	
 	/**
 	 * This method is invoked in main and just uses print stream
 	 * to print out the menu for the user

@@ -21,39 +21,41 @@ public class Game {
 	private int awayTurnovers;
 	
 	
-	
 	/**
 	 * This method sets the current fields to store actual games from input file
-	 * @param a
-	 * @param b
-	 * @param c
-	 * @param d
-	 * @param e
-	 * @param f
-	 * @param g
-	 * @param h
-	 * @param i
-	 * @param j
-	 * @param k
-	 * @param l
-	 * @param m
+	 * @param newYear
+	 * @param newWeek
+	 * @param newDay
+	 * @param newHome
+	 * @param newHomeScore
+	 * @param newAway
+	 * @param newAwayScore
+	 * @param newDate
+	 * @param newResult
+	 * @param newHomeYards
+	 * @param newAwayYards
+	 * @param newHomeTurnover
+	 * @param newAwayTurnover
 	 */
-	public Game (int a, String b, String c, String d, int e, String f, 
-			int g, String h, String i, int j, int k,int l, int m){
+	public Game (int newYear, String newWeek, String newDay, 
+			String newHome, int newHomeScore, String newAway, 
+			int newAwayScore, String newDate, String newResult, 
+			int newHomeYards, int newAwayYards,int newHomeTurnover, 
+			int newAwayTurnover){
 		
-		this.year = a;
-		this.week =b;
-		this.day  = c;
-		this.home  =d;
-		this.homeScore  =e;
-		this.away = f ;
-		this.awayScore =g ;
-		this.date  = h;
-		this.result  = i;
-	    this.homeYards  = j;
-		this.awayYards  = k;
-		this.homeTurnovers  = l;
-		this.awayTurnovers  =m;
+		this.year = newYear;
+		this.week =newWeek;
+		this.day  = newDay;
+		this.home  =newHome;
+		this.homeScore  =newHomeScore;
+		this.away = newAway ;
+		this.awayScore =newAwayScore ;
+		this.date  = newDate;
+		this.result  = newResult;
+	    this.homeYards  = newHomeYards;
+		this.awayYards  = newAwayYards;
+		this.homeTurnovers  = newHomeTurnover;
+		this.awayTurnovers  =newAwayTurnover;
 		
 	}	
 	/**

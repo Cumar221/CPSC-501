@@ -1,12 +1,12 @@
 
-public class statsCriteria {
+public class TeamStatsObj {
 	private int wins;
 	private int losses;
 	private int ties;
 	private double  pointPercentage;
 	private int points;
 	
-	public statsCriteria(int newW, int newL, int newT, double newPP, int newP) {
+	public TeamStatsObj(int newW, int newL, int newT, double newPP, int newP) {
 		this.wins = newW;
 		this.losses = newL;
 		this.ties = newT;

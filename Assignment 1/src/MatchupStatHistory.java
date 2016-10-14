@@ -4,16 +4,14 @@ import java.util.Scanner;
 
 public class MatchupStatHistory {
 
-	private String userInput;
-	private String userInput2;
+	private String userInputTeamOne;
+	private String userInputTeamTwo;
 	private String printResults;
-	private String printResults2;
 	private String printGuide;
-	private String findTeam;
-	private String findTeam2;
-	private Boolean found = false;
-	private Boolean found2 = false;
-	private int count = 0; 
+	private String findTeamOne;
+	private String findTeamTwo;
+	private Boolean teamOneFound = false;
+	private Boolean teamTwoFound = false;
 	private PrintStream print = new PrintStream (System.out);
 	
 
@@ -24,55 +22,41 @@ public class MatchupStatHistory {
 	 * @param input - is a scanner used to receive the user's input
 	 */
 	public void showMatchupHistory(Scanner input, ArrayList<Game> gameData){						
-		findTeam ="\nPlease enter the first team: ";
-		findTeam2 ="\nPlease enter the second  team: ";			
-		print.print(findTeam);
-		userInput = input.next().toUpperCase();	
-		print.print(findTeam2);
-		userInput2 = input.next().toUpperCase();				
-		printGuide ="\nHistory of "+ userInput + " vs. " +userInput2 + "\n"
+		findTeamOne ="\nPlease enter the first team: ";
+		findTeamTwo ="\nPlease enter the second  team: ";			
+		print.print(findTeamOne);
+		userInputTeamOne = input.next().toUpperCase();	
+		print.print(findTeamTwo);
+		userInputTeamTwo = input.next().toUpperCase();				
+		printGuide ="\nHistory of "+ userInputTeamOne + " vs. " +userInputTeamTwo + "\n"
 				+"Year\tWeek\tAway\tAway Score\tHome\tHome Score \n"
 				+"------------------------------------------------------------------";
-		
+		print.print(printGuide);
+		 
 		for(Game game : gameData){
-			if(game.getHome().equals(userInput)){
-				found = true;
-				if (game.getAway().equals(userInput2)){	
-					found2 = true;
-					if(count == 0){
-						print.print(printGuide);
-						count++;
-					}
-					printResults = "\n" + game.getYear() + "\t" 
-							+ game.getWeek() + "\t" 
-							+ game.getAway() + "\t" 
-							+ game.getAwayScore() + "\t\t" 
-							+ game.getHome() + "\t" 
-							+ game.getHomeScore();			     			
-					print.print(printResults);								
-				}				
-			}			
-			else if(game.getHome().equals(userInput2) &&
-					game.getAway().equals(userInput)){	
-				printResults2 = "\n" + game.getYear() 
-						+ "\t" + game.getWeek() 
-						+ "\t" + game.getAway() + "\t" 
-						+ game.getAwayScore() 
-						+ "\t\t" + game.getHome() 
-						+ "\t" + game.getHomeScore();				
-				print.print(printResults2);											
+			if((game.getHome().equals(userInputTeamOne) && game.getAway().equals(userInputTeamTwo)) ||
+					(game.getAway().equals(userInputTeamOne) && game.getHome().equals(userInputTeamTwo))){
+				print.print(printResults(game));
 			}
-		}			
-			
-		if(!found){
-			printResults ="\nI'm sorry; "+ userInput + " is not a valid team name. ";
+		}
+		if(!teamOneFound){
+			printResults ="\nI'm sorry; "+ userInputTeamOne + " is not a valid team name. ";
 			print.print(printResults);
 		}
-		else if(!found2){
-			printResults ="\nI'm sorry; "+ userInput2 + " is not a valid team name. ";
+		else if(!teamTwoFound){
+			printResults ="\nI'm sorry; "+ userInputTeamTwo + " is not a valid team name. ";
 			print.print(printResults);
 		}	
 	}
-	
-	
+		public String printResults(Game game){
+			teamOneFound = true;
+			teamTwoFound = true;
+			printResults = "\n" + game.getYear() + "\t" 
+					+ game.getWeek() + "\t" 
+					+ game.getAway() + "\t" 
+					+ game.getAwayScore() + "\t\t" 
+					+ game.getHome() + "\t" 
+					+ game.getHomeScore();	
+			return printResults;
+		}
 }

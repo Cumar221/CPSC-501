@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class TeamStats {
 	
-	private String userInput;								
+	private String userInputTeam;								
 	private int wins = 0;
 	private int losses = 0;
 	private int ties = 0;
@@ -13,9 +13,8 @@ public class TeamStats {
 	private String printResults = null;
 	private String findTeam = null;
 	private Boolean found = null;
-	private statsCriteria statsVar = null;
+	private TeamStatsObj teamStatObj = null;
 	private PrintStream print = new PrintStream (System.out);
-
 
 	/**
 	 * This handler method is invoked in the menu method
@@ -25,28 +24,28 @@ public class TeamStats {
 	 * - error of team is handled in this method if the team is not found  
 	 * @param input - is a scanner used to get the user's input
 	 */
-	public statsCriteria getTeamStatistics(Scanner input,ArrayList<Game> gameData){
+	public TeamStatsObj getTeamStatistics(Scanner input,ArrayList<Game> gameData){
 		findTeam ="\nPlease enter a team: ";			
 		print.print(findTeam);
-		userInput = input.next().toUpperCase();
+		userInputTeam = input.next().toUpperCase();
 
 		for(Game game : gameData){
 			found = true;
-			if(game.getHome().equals(userInput)){
+			if(game.getHome().equals(userInputTeam)){
 				teamHome(game);
 			}
-			else if (game.getAway().equals(userInput)){
+			else if (game.getAway().equals(userInputTeam)){
 				teamAway(game);
 			}
 		}
 		if(!found){
-			printResults ="\nI'm sorry; "+ userInput + " is not a valid team name. ";
+			printResults ="\nI'm sorry; "+ userInputTeam + " is not a valid team name. ";
 			print.print(printResults);
 		}else{
 			print.print(printResults());
-			statsVar = new statsCriteria(wins, losses, ties, pointPercentage, points);
+			teamStatObj = new TeamStatsObj(wins, losses, ties, pointPercentage, points);
 		}
-		return statsVar;
+		return teamStatObj;
 	}
 	/**
 	 * 
@@ -54,7 +53,7 @@ public class TeamStats {
 	 */
 	public String printResults(){
 		pointPercentage = ((((double)(wins+losses+ties) / points) )*100);
-		printResults ="\nStats for " + userInput + ":\n"
+		printResults ="\nStats for " + userInputTeam + ":\n"
 				+ "  Wins:\t\t\t" + wins
 				+ "\n  Losses:\t\t" + losses
 				+ "\n  Ties:\t\t\t" + ties
@@ -64,9 +63,7 @@ public class TeamStats {
 	}
 	/**
 	 * 
-	 * @param obj
-	 * @param year
-	 * @param data
+	 * @param game
 	 */
 	public void teamAway(Game game){
 		if(game.getResult().equals("H")){
@@ -82,9 +79,7 @@ public class TeamStats {
 	}
 	/**
 	 * 
-	 * @param obj
-	 * @param year
-	 * @param data
+	 * @param game
 	 */
 	public void teamHome(Game game){
 		if(game.getResult().equals("H")){
