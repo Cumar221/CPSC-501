@@ -29,15 +29,7 @@ public class FieldInspector {
 	    			    objectsToInspect.addElement(f);//It's adding b/c we may need to extract detail 
 	    												// of class or object
 	    			try{	
-	    				System.out.println("\nField: " + f.getName()
-	    									+ "	\nType: " + f.getType().getName()  
-	    									+ " = " + f.get(obj).toString() + "\nModifier: " 
-	    									+ Modifier.toString(f.getModifiers()));	
-	    				if (f.getType().isArray())
-	    					System.out.format("--------------------------------------- Array%n"
-	    							+ "Length: %s%n"
-					 			    + "Component Type: %s%n",
-					 			   Array.getLength(f.get(obj)), f.getType().getComponentType().getName());
+	    				print(f, obj);
 	    			}
 	    			catch(Exception e) {}    
 				}
@@ -45,6 +37,25 @@ public class FieldInspector {
 				if(ObjClass.getSuperclass().getDeclaredFields().length >=1)
 					inspectFields(obj, ObjClass.getSuperclass() , objectsToInspect);
 		    }
-	}
-
+	}//RETURN inspectFields
+	/**
+	 * Purpose: A helper function to inspectFields that prints out
+	 * 			the information of each field in a class
+	 * 
+	 * @param f
+	 * @param obj
+	 * @throws IllegalArgumentException
+	 * @throws IllegalAccessException
+	 */
+	private void print(Field f, Object obj) throws IllegalArgumentException, IllegalAccessException{
+		System.out.println("\nField: " + f.getName()
+							+ "	\nType: " + f.getType().getName()  
+							+ " = " + f.get(obj).toString() + "\nModifier: " 
+							+ Modifier.toString(f.getModifiers()));	
+		if (f.getType().isArray())
+					System.out.format("--------------------------------------- Array%n"
+									+ "Length: %s%n"
+									+ "Component Type: %s%n",
+									Array.getLength(f.get(obj)), f.getType().getComponentType().getName());
+	}//RETURN print
 }

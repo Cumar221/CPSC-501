@@ -61,7 +61,7 @@ public class Inspector extends ClassInspector {
 		else{
 			System.out.println("NULL");
 		}
-    }
+    }//RETURN inspect
     /**
 	 * Purpose: This method allows Objects and Classes to be inspected further
 	 * 
@@ -93,5 +93,5 @@ public class Inspector extends ClassInspector {
 			}
 			catch(Exception exp) { exp.printStackTrace(); }
 		}
-	}
+	}//RETURN inspectFieldClasses
 }

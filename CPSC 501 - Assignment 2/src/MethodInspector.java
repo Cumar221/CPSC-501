@@ -42,7 +42,7 @@ public class MethodInspector extends FieldInspector {
 					System.out.println("Modifier: " + Modifier.toString(method.getModifiers()));
 			}
 		}
-	}
+	}//RETURN inspectMethods
 	/**
 	 * Purpose: This method gives us details about all the available
 	 * 			constructors in a given class
@@ -62,5 +62,5 @@ public class MethodInspector extends FieldInspector {
 			}
 			System.out.println("Modifier: " + Modifier.toString(construc.getModifiers()) + "\n");
 		}
-	}
+	}//RETURN inspectConstructor
 }

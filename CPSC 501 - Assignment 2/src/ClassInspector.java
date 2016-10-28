@@ -24,7 +24,7 @@ public class ClassInspector extends MethodInspector {
 		}
 		else
 			System.out.println("NULL");
-	}
+	}//RETURN inspectInterface
 	/**
 	 * Purpose: This method gives up some info on the declared class
 	 * 
@@ -38,7 +38,7 @@ public class ClassInspector extends MethodInspector {
 			System.out.println("Class Name: " + obj.getClass().getName());
 		else
 			System.out.println("NULL");
-	}
+	}//RETURN inspectDeclerationClass
 	/**
 	 * Purpose: This method simply provides info on any immediate 
 	 * 			super classes a partiular class may be using
@@ -53,5 +53,5 @@ public class ClassInspector extends MethodInspector {
 			System.out.println("Immediate Super Class: " + obj.getClass().getSuperclass().getName());
 		else
 			System.out.println("NULL");
-	}
+	}//RETURN inspectImmediateSuperClass
 }
