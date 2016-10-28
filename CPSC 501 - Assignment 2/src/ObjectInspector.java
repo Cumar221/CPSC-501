@@ -38,6 +38,7 @@ public class ObjectInspector{
 		//inspect the current class
 		inspectClass(obj, ObjClass,objectsToInspect);
 		inspectMethods(obj, ObjClass,objectsToInspect);
+		inspectConstructor(obj, ObjClass,objectsToInspect);
 		inspectFields(obj, ObjClass,objectsToInspect);
 		
 		//if(recursive)
@@ -65,6 +66,12 @@ public class ObjectInspector{
 		}
     	
     }
+    /**
+     * 
+     * @param obj
+     * @param ObjClass
+     * @param objectsToInspectj
+     */
     private void inspectMethods(Object obj,Class ObjClass,Vector objectsToInspectj){
     	System.out.println("\n****************** Inspecting Methods of Class ******************");
     	for (Method method : obj.getClass().getMethods()) {
@@ -79,6 +86,17 @@ public class ObjectInspector{
     				System.out.println("Return Type: " + method.getReturnType().getName());
     				System.out.println("Modifier: " + Modifier.toString(method.getModifiers()));
     		}
+		}
+    }
+    private void inspectConstructor(Object obj,Class ObjClass,Vector objectsToInspectj){
+    	System.out.println("\n****************** Inspecting Constructor ******************");
+    	
+    	for (Constructor<?> construc : obj.getClass().getConstructors()) {
+			System.out.println("Constructor: " + construc.getName());
+			for (Parameter param : construc.getParameters()) {
+				System.out.println("Parameter " + param.getParameterizedType());
+			}
+			System.out.println("Modifier: " + Modifier.toString(construc.getModifiers()));
 		}
     }
     /**
