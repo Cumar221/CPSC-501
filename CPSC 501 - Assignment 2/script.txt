@@ -2,164 +2,932 @@ Loading object inspector: Inspector
 ===========================================================================
 ===========================================================================
 
-Running Test: ClassB[][]
-inside inspector: ClassB[][] (recursive = true)
-inside inspector: ClassB[] (recursive = true)
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-inside inspector: ClassB[] (recursive = true)
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-inside inspector: ClassB[] (recursive = true)
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-inside inspector: ClassB[] (recursive = true)
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-inside inspector: ClassB[] (recursive = true)
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-inside inspector: ClassB[] (recursive = true)
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-inside inspector: ClassB[] (recursive = true)
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-inside inspector: ClassB[] (recursive = true)
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-inside inspector: ClassB[] (recursive = true)
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-inside inspector: ClassB[] (recursive = true)
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-inside inspector: ClassB[] (recursive = true)
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-inside inspector: ClassB[] (recursive = true)
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
-NULL
+Running Test: ClassA
+inside inspector: ClassA (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassA
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: java.lang.Object
+
+***** Inspecting Interfaces *****
+
+Interface: java.io.Serializable
+Interface: java.lang.Runnable
+
+***** Inspecting Methods of Class *****
+
+Name: run
+Return Type: void
+Modifier: public
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: setVal
+Exception Throws: java.lang.Exception
+Parameter: int
+Return Type: void
+Modifier: public
+
+Name: getVal
+Return Type: int
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassA
+Modifier: public
+
+Constructor: ClassA
+Parameter: int
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: int = 3
+Modifier: private
+
+Field: val2	
+Type: double = 0.2
+Modifier: private
+
+Field: val3	
+Type: boolean = true
+Modifier: private
+===========================================================================
+===========================================================================
+
+===========================================================================
+===========================================================================
+
+Running Test: ClassA
+inside inspector: ClassA (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassA
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: java.lang.Object
+
+***** Inspecting Interfaces *****
+
+Interface: java.io.Serializable
+Interface: java.lang.Runnable
+
+***** Inspecting Methods of Class *****
+
+Name: run
+Return Type: void
+Modifier: public
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: setVal
+Exception Throws: java.lang.Exception
+Parameter: int
+Return Type: void
+Modifier: public
+
+Name: getVal
+Return Type: int
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassA
+Modifier: public
+
+Constructor: ClassA
+Parameter: int
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: int = 12
+Modifier: private
+
+Field: val2	
+Type: double = 0.2
+Modifier: private
+
+Field: val3	
+Type: boolean = true
+Modifier: private
+===========================================================================
+===========================================================================
+
+===========================================================================
+===========================================================================
+
+Running Test: ClassB
+inside inspector: ClassB (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassB
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: ClassC
+
+***** Inspecting Interfaces *****
+
+Interface: java.lang.Runnable
+
+***** Inspecting Methods of Class *****
+
+Name: run
+Return Type: void
+Modifier: public
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: func3
+Parameter: int
+Return Type: void
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassB
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: ClassA = ClassA
+Modifier: private
+
+Field: val2	
+Type: ClassA = ClassA
+Modifier: private
+
+***** Inspecting Fields *****
+
+Field: val2	
+Type: ClassA = ClassA
+Modifier: private
+
+Field: val3	
+Type: ClassA = ClassA
+Modifier: private
+
+Field: val4	
+Type: ClassA = ClassA
+Modifier: private
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: ClassA = ClassA
+Modifier: private
+
+Field: val3	
+Type: int = 34
+Modifier: private
+
+Field: vallarray	
+Type: [LClassA; = [LClassA;@6bc7c054
+Modifier: private
+--------------------------------------- Array
+Length: 10
+Component Type: ClassA
+
+
+================================================ Inspecting Field Classes/Objects ================================================
+
+
+***************************************************
+************ Inspecting Field: val ***************
+***************************************************
+
+inside inspector: ClassA (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassA
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: java.lang.Object
+
+***** Inspecting Interfaces *****
+
+Interface: java.io.Serializable
+Interface: java.lang.Runnable
+
+***** Inspecting Methods of Class *****
+
+Name: run
+Return Type: void
+Modifier: public
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: setVal
+Exception Throws: java.lang.Exception
+Parameter: int
+Return Type: void
+Modifier: public
+
+Name: getVal
+Return Type: int
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassA
+Modifier: public
+
+Constructor: ClassA
+Parameter: int
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: int = 3
+Modifier: private
+
+Field: val2	
+Type: double = 0.2
+Modifier: private
+
+Field: val3	
+Type: boolean = true
+Modifier: private
+
+***************************************************
+***************************************************
+************ Inspecting Field: val2 ***************
+***************************************************
+
+inside inspector: ClassA (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassA
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: java.lang.Object
+
+***** Inspecting Interfaces *****
+
+Interface: java.io.Serializable
+Interface: java.lang.Runnable
+
+***** Inspecting Methods of Class *****
+
+Name: run
+Return Type: void
+Modifier: public
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: setVal
+Exception Throws: java.lang.Exception
+Parameter: int
+Return Type: void
+Modifier: public
+
+Name: getVal
+Return Type: int
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassA
+Modifier: public
+
+Constructor: ClassA
+Parameter: int
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: int = 12
+Modifier: private
+
+Field: val2	
+Type: double = 0.2
+Modifier: private
+
+Field: val3	
+Type: boolean = true
+Modifier: private
+
+***************************************************
+***************************************************
+************ Inspecting Field: val3 ***************
+***************************************************
+
+NULL
+
+***************************************************
+***************************************************
+************ Inspecting Field: val2 ***************
+***************************************************
+
+inside inspector: ClassA (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassA
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: java.lang.Object
+
+***** Inspecting Interfaces *****
+
+Interface: java.io.Serializable
+Interface: java.lang.Runnable
+
+***** Inspecting Methods of Class *****
+
+Name: run
+Return Type: void
+Modifier: public
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: setVal
+Exception Throws: java.lang.Exception
+Parameter: int
+Return Type: void
+Modifier: public
+
+Name: getVal
+Return Type: int
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassA
+Modifier: public
+
+Constructor: ClassA
+Parameter: int
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: int = 100
+Modifier: private
+
+Field: val2	
+Type: double = 0.2
+Modifier: private
+
+Field: val3	
+Type: boolean = true
+Modifier: private
+
+***************************************************
+***************************************************
+************ Inspecting Field: val3 ***************
+***************************************************
+
+inside inspector: ClassA (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassA
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: java.lang.Object
+
+***** Inspecting Interfaces *****
+
+Interface: java.io.Serializable
+Interface: java.lang.Runnable
+
+***** Inspecting Methods of Class *****
+
+Name: run
+Return Type: void
+Modifier: public
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: setVal
+Exception Throws: java.lang.Exception
+Parameter: int
+Return Type: void
+Modifier: public
+
+Name: getVal
+Return Type: int
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassA
+Modifier: public
+
+Constructor: ClassA
+Parameter: int
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: int = 2
+Modifier: private
+
+Field: val2	
+Type: double = 0.2
+Modifier: private
+
+Field: val3	
+Type: boolean = true
+Modifier: private
+
+***************************************************
+***************************************************
+************ Inspecting Field: val4 ***************
+***************************************************
+
+inside inspector: ClassA (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassA
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: java.lang.Object
+
+***** Inspecting Interfaces *****
+
+Interface: java.io.Serializable
+Interface: java.lang.Runnable
+
+***** Inspecting Methods of Class *****
+
+Name: run
+Return Type: void
+Modifier: public
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: setVal
+Exception Throws: java.lang.Exception
+Parameter: int
+Return Type: void
+Modifier: public
+
+Name: getVal
+Return Type: int
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassA
+Modifier: public
+
+Constructor: ClassA
+Parameter: int
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: int = 3
+Modifier: private
+
+Field: val2	
+Type: double = 0.2
+Modifier: private
+
+Field: val3	
+Type: boolean = true
+Modifier: private
+
+***************************************************
+***************************************************
+************ Inspecting Field: val ***************
+***************************************************
+
+inside inspector: ClassA (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassA
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: java.lang.Object
+
+***** Inspecting Interfaces *****
+
+Interface: java.io.Serializable
+Interface: java.lang.Runnable
+
+***** Inspecting Methods of Class *****
+
+Name: run
+Return Type: void
+Modifier: public
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: setVal
+Exception Throws: java.lang.Exception
+Parameter: int
+Return Type: void
+Modifier: public
+
+Name: getVal
+Return Type: int
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassA
+Modifier: public
+
+Constructor: ClassA
+Parameter: int
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: int = 17
+Modifier: private
+
+Field: val2	
+Type: double = 0.2
+Modifier: private
+
+Field: val3	
+Type: boolean = true
+Modifier: private
+
+***************************************************
+***************************************************
+************ Inspecting Field: val2 ***************
+***************************************************
+
+NULL
+
+***************************************************
+***************************************************
+************ Inspecting Field: vallarray ***************
+***************************************************
+
+inside inspector: ClassA[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+
+***************************************************
+===========================================================================
+===========================================================================
+
+===========================================================================
+===========================================================================
+
+Running Test: ClassD
+inside inspector: ClassD (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassD
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: java.lang.Object
+
+***** Inspecting Interfaces *****
+
+NULL
+
+***** Inspecting Methods of Class *****
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: getVal3
+Return Type: int
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassD
+Modifier: public
+
+Constructor: ClassD
+Parameter: int
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: ClassA = ClassA
+Modifier: private
+
+Field: val3	
+Type: int = 32
+Modifier: private
+
+Field: vallarray	
+Type: [LClassA; = [LClassA;@74a14482
+Modifier: private
+--------------------------------------- Array
+Length: 10
+Component Type: ClassA
+
+
+================================================ Inspecting Field Classes/Objects ================================================
+
+
+***************************************************
+************ Inspecting Field: val ***************
+***************************************************
+
+inside inspector: ClassA (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassA
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: java.lang.Object
+
+***** Inspecting Interfaces *****
+
+Interface: java.io.Serializable
+Interface: java.lang.Runnable
+
+***** Inspecting Methods of Class *****
+
+Name: run
+Return Type: void
+Modifier: public
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: setVal
+Exception Throws: java.lang.Exception
+Parameter: int
+Return Type: void
+Modifier: public
+
+Name: getVal
+Return Type: int
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassA
+Modifier: public
+
+Constructor: ClassA
+Parameter: int
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: int = 17
+Modifier: private
+
+Field: val2	
+Type: double = 0.2
+Modifier: private
+
+Field: val3	
+Type: boolean = true
+Modifier: private
+
+***************************************************
+***************************************************
+************ Inspecting Field: val2 ***************
+***************************************************
+
+NULL
+
+***************************************************
+***************************************************
+************ Inspecting Field: vallarray ***************
+***************************************************
+
+inside inspector: ClassA[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+
+***************************************************
+===========================================================================
+===========================================================================
+
+===========================================================================
+===========================================================================
+
+Running Test: ClassD
+inside inspector: ClassD (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassD
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: java.lang.Object
+
+***** Inspecting Interfaces *****
+
+NULL
+
+***** Inspecting Methods of Class *****
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: getVal3
+Return Type: int
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassD
+Modifier: public
+
+Constructor: ClassD
+Parameter: int
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: ClassA = ClassA
+Modifier: private
+
+Field: val3	
+Type: int = 34
+Modifier: private
+
+Field: vallarray	
+Type: [LClassA; = [LClassA;@1540e19d
+Modifier: private
+--------------------------------------- Array
+Length: 10
+Component Type: ClassA
+
+
+================================================ Inspecting Field Classes/Objects ================================================
+
+
+***************************************************
+************ Inspecting Field: val ***************
+***************************************************
+
+inside inspector: ClassA (recursive = true)
+
+***** Inspecting Declaring Class *****
+
+Class Name: ClassA
+
+***** Inspecting Immediate Superclass ******
+
+Immediate Super Class: java.lang.Object
+
+***** Inspecting Interfaces *****
+
+Interface: java.io.Serializable
+Interface: java.lang.Runnable
+
+***** Inspecting Methods of Class *****
+
+Name: run
+Return Type: void
+Modifier: public
+
+Name: toString
+Return Type: java.lang.String
+Modifier: public
+
+Name: setVal
+Exception Throws: java.lang.Exception
+Parameter: int
+Return Type: void
+Modifier: public
+
+Name: getVal
+Return Type: int
+Modifier: public
+
+***** Inspecting Constructor *****
+
+Constructor: ClassA
+Modifier: public
+
+Constructor: ClassA
+Parameter: int
+Modifier: public
+
+
+***** Inspecting Fields *****
+
+Field: val	
+Type: int = 17
+Modifier: private
+
+Field: val2	
+Type: double = 0.2
+Modifier: private
+
+Field: val3	
+Type: boolean = true
+Modifier: private
+
+***************************************************
+***************************************************
+************ Inspecting Field: val2 ***************
+***************************************************
+
+NULL
+
+***************************************************
+***************************************************
+************ Inspecting Field: vallarray ***************
+***************************************************
+
+inside inspector: ClassA[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+
+***************************************************
 ===========================================================================
 ===========================================================================
 

@@ -41,7 +41,7 @@ public class ClassInspector extends MethodInspector {
 	}//RETURN inspectDeclerationClass
 	/**
 	 * Purpose: This method simply provides info on any immediate 
-	 * 			super classes a partiular class may be using
+	 * 			super classes a particular class may be using
 	 * 
 	 * Details: Just prints out the names of the super classes used
 	 * 
