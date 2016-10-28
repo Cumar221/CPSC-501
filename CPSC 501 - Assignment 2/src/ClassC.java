@@ -10,18 +10,14 @@ public abstract class ClassC extends ClassD implements InterfaceA
 
     public void func0(int a,boolean c) throws Exception {}
 
-    public void func1(int a,double b,boolean c, String s) throws Exception
-    {
-    }
+    public void func1(int a,double b,boolean c, String s) throws Exception{}
     
-    public int func2(String s)throws Exception, ArithmeticException , IllegalMonitorStateException 
-    {
-	return 1;
+    public int func2(String s)throws Exception, ArithmeticException , IllegalMonitorStateException {
+    	return 1;
     }
 
    
     public abstract void func3(int a);
-
 
     private ClassA val2 = new ClassA(100);
     private ClassA val3;

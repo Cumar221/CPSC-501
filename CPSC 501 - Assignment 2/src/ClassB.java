@@ -9,10 +9,7 @@ public class ClassB extends ClassC implements Runnable
 
     public String toString() { return "ClassB"; }
 
-    public void func3(int a)
-    {
-
-    }
+    public void func3(int a){}
 
     private ClassA val = new ClassA();
     private ClassA val2 = new ClassA(12);
