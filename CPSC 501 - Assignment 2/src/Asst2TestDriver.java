@@ -20,7 +20,7 @@ public class Asst2TestDriver{
      * @throws Exception
      */
     public Asst2TestDriver(String ObjInspectorName, boolean recursive) throws Exception{
-		this.recursive=recursive;
+		this.recursive = recursive;
 		setObjectInspectorInfo(ObjInspectorName);
     }
     
@@ -69,8 +69,8 @@ public class Asst2TestDriver{
   }
     //------- Fields -----------------------------------------------------
     private Object ObjInspector = null;
-    private Method inspectionMethod =null;
-    private boolean recursive=false;
+    private Method inspectionMethod = null;
+    private boolean recursive = false;
     
     
     //====================== MAIN =======================================

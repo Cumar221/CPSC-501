@@ -9,7 +9,12 @@ public class FieldInspector {
 		super();
 	}
 	/**
+	 * Purpose: This method finds and provides the details of each field
+	 * 			declared in a given class.
 	 * 
+	 * Detail: The name of the class including its type and 
+	 * 				modifier is printed
+	 *  
 	 * @param obj
 	 * @param ObjClass
 	 * @param objectsToInspect
@@ -20,9 +25,9 @@ public class FieldInspector {
 	    		for (Field f : ObjClass.getDeclaredFields()) {
 	    			f.setAccessible(true);
 	    			
-	    			if(!f.getType().isPrimitive()) 
-	    			    objectsToInspect.addElement(f);
-	    			
+	    			if(!f.getType().isPrimitive()) //This is setting up the recursive part if need
+	    			    objectsToInspect.addElement(f);//It's adding b/c we may need to extract detail 
+	    												// of class or object
 	    			try{	
 	    				System.out.println("\nField: " + f.getName()
 	    									+ "	\nType: " + f.getType().getName()  

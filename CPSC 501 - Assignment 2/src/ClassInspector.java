@@ -5,9 +5,12 @@ public class ClassInspector extends MethodInspector {
 	public ClassInspector() {
 		super();
 	}
-
 	/**
+	 * Purpose: This method simply let us know what interface 
+	 * 			if any a particular class is using
 	 * 
+	 * Details: The interface name will be only printed out
+	 *  
 	 * @param obj
 	 * @param ObjClass
 	 * @param objectsToInspectj
@@ -23,6 +26,9 @@ public class ClassInspector extends MethodInspector {
 			System.out.println("NULL");
 	}
 	/**
+	 * Purpose: This method gives up some info on the declared class
+	 * 
+	 * Detail: Just prints out the name of the class
 	 * 
 	 * @param obj
 	 */
@@ -34,6 +40,10 @@ public class ClassInspector extends MethodInspector {
 			System.out.println("NULL");
 	}
 	/**
+	 * Purpose: This method simply provides info on any immediate 
+	 * 			super classes a partiular class may be using
+	 * 
+	 * Details: Just prints out the names of the super classes used
 	 * 
 	 * @param obj
 	 */
@@ -44,5 +54,4 @@ public class ClassInspector extends MethodInspector {
 		else
 			System.out.println("NULL");
 	}
-
 }

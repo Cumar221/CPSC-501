@@ -19,9 +19,16 @@ got the original code from
 import java.util.*;
 import java.lang.reflect.*;
 
-public class ObjectInspector extends ClassInspector {
-	public ObjectInspector() {}
+public class Inspector extends ClassInspector {
+	public Inspector() {}
     /**
+     * Purpose: This is the method that is called at runtime for
+     * 			reflection. 
+     * 
+     * Detail: This method with the help of helper functions allows
+     * 			the classes and objects to be inspected by finding 
+     * 			details about their parameters, return types, methods
+     * 			and many more
      * 
      * @param obj
      * @param recursive
@@ -31,10 +38,9 @@ public class ObjectInspector extends ClassInspector {
 			Vector objectsToInspect = new Vector();
 			Class ObjClass = obj.getClass();
 			
-	
 			System.out.println("inside inspector: " + obj.getClass().getTypeName() + " (recursive = "+recursive+")");
 		
-			if(obj.getClass().isArray()){
+			if(obj.getClass().isArray()){		// This checks if the non-primitive types are an array and inspects them
 				for(int i = 0; i < Array.getLength(obj); i++){
 					inspect(Array.get(obj, i), recursive);
 				}
@@ -57,6 +63,11 @@ public class ObjectInspector extends ClassInspector {
 		}
     }
     /**
+	 * Purpose: This method allows Objects and Classes to be inspected further
+	 * 
+	 * Details: This method is executed if the recursive boolean is set to true
+	 * 			and of course if there is non-primitive types the needs to be 
+	 * 			inspected. 
 	 * 
 	 * @param obj
 	 * @param ObjClass
@@ -69,8 +80,8 @@ public class ObjectInspector extends ClassInspector {
 		    		+ " Inspecting Field Classes/Objects "
 		    		+ "================================================\n\n");
 		
-		Enumeration e = objectsToInspect.elements();
-		while(e.hasMoreElements()){
+		Enumeration e = objectsToInspect.elements(); //this vector keeps all the non-primitive data 
+		while(e.hasMoreElements()){					// the needs to be further inspected
 			Field f = (Field) e.nextElement();
 			System.out.println("***************************************************");
 			System.out.println("************ Inspecting Field: " + f.getName() + " ***************" );

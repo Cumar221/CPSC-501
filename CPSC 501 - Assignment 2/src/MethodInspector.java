@@ -10,7 +10,17 @@ public class MethodInspector extends FieldInspector {
 	}
 
 	/**
+	 * Purpose: This method simply tells us all the methods available
+	 * 			in the class
 	 * 
+	 * Detail: The method's name including other properties listed below
+	 * 		   are printed
+	 * 
+	 * 		•	The exceptions thrown
+	 *		•	The parameter types
+	 *		•	The return type
+	 *		•	The modifiers
+     *
 	 * @param obj
 	 * @param ObjClass
 	 * @param objectsToInspectj
@@ -20,6 +30,8 @@ public class MethodInspector extends FieldInspector {
 		for (Method method : obj.getClass().getMethods()) {
 			if(method.getDeclaringClass().equals(obj.getClass())){
 				System.out.println("\nName: " + method.getName());
+					// A loop is required for both exception and parameter 
+					// as there can be more than one exception and parameter on a method 
 					for (Class excepThrown : method.getExceptionTypes()) {
 						System.out.println("Exception Throws: " + excepThrown.getName());
 					}
@@ -31,7 +43,15 @@ public class MethodInspector extends FieldInspector {
 			}
 		}
 	}
-
+	/**
+	 * Purpose: This method gives us details about all the available
+	 * 			constructors in a given class
+	 * 
+	 * Detail: The parameters and modifiers of the constructor will be
+	 * 		   printed
+	 * 
+	 * @param obj
+	 */
 	protected void inspectConstructor(Object obj) {
 		System.out.println("\n***** Inspecting Constructor *****\n");
 		
@@ -43,5 +63,4 @@ public class MethodInspector extends FieldInspector {
 			System.out.println("Modifier: " + Modifier.toString(construc.getModifiers()) + "\n");
 		}
 	}
-
 }
