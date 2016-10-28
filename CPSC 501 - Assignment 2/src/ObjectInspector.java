@@ -37,26 +37,49 @@ public class ObjectInspector{
 		
 		//inspect the current class
 		inspectClass(obj, ObjClass,objectsToInspect);
+		inspectMethods(obj, ObjClass,objectsToInspect);
 		inspectFields(obj, ObjClass,objectsToInspect);
 		
 		//if(recursive)
 		  //  inspectFieldClasses( obj, ObjClass, objectsToInspect, recursive);   
     }
+    /**
+     * 
+     * @param obj
+     * @param ObjClass
+     * @param objectsToInspectj
+     */
     private void inspectClass(Object obj,Class ObjClass,Vector objectsToInspectj){
-    	System.out.println("\n****************** Inspecting declaring class ******************\n");
+    	System.out.println("\n****************** Inspecting Declaring Class ******************\n");
     	
     	System.out.println("Class Name: " + obj.getClass().getName());
     	
-    	System.out.println("\n****************** Inspecting immediate superclass ******************\n");
+    	System.out.println("\n****************** Inspecting Immediate Superclass ******************\n");
     	
     	System.out.println("Immediate Super Class: " + obj.getClass().getSuperclass().getName());
     	
-    	System.out.println("\n****************** Inspecting interfaces the class implements******************\n");
+    	System.out.println("\n****************** Inspecting Interfaces ******************\n");
     	
     	for ( Class interF : obj.getClass().getInterfaces()) {
     		System.out.println("Interface: " + interF.getName());
 		}
     	
+    }
+    private void inspectMethods(Object obj,Class ObjClass,Vector objectsToInspectj){
+    	System.out.println("\n****************** Inspecting Methods of Class ******************");
+    	for (Method method : obj.getClass().getMethods()) {
+    		if(method.getDeclaringClass().equals(obj.getClass())){
+    			System.out.println("\nName: " + method.getName());
+    				for (Class excepThrown : method.getExceptionTypes()) {
+						System.out.println("Exception Throws: " + excepThrown.getName());
+					}
+    				for (Parameter param : method.getParameters()) {
+    					System.out.println("Parameter: " + param.getParameterizedType());
+					}
+    				System.out.println("Return Type: " + method.getReturnType().getName());
+    				System.out.println("Modifier: " + Modifier.toString(method.getModifiers()));
+    		}
+		}
     }
     /**
      * 
@@ -101,7 +124,8 @@ public class ObjectInspector{
     			    objectsToInspect.addElement( f );
     			try{
     				System.out.println("\nType: " + f.getType() + "\nFeild: " + f.getName() 
-    									+ " = " + f.get(obj) + "\nModifier: " + f.getModifiers() );	
+    									+ " = " + f.get(obj) + "\nModifier: " 
+    									+ Modifier.toString(f.getModifiers()));	
     			}
     			catch(Exception e) {}    
 			}
