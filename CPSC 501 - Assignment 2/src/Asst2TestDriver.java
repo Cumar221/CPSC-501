@@ -56,7 +56,7 @@ public class Asst2TestDriver{
 	try{
 		System.out.println("===========================================================================\n"
 				+ "===========================================================================\n");
-		System.out.println("Running Test: " + testObj);
+		System.out.println("Running Test: " + testObj.getClass().getTypeName());
 		Object[] param = { testObj, new Boolean(recursive) };
 		inspectionMethod.invoke(ObjInspector, param); 
 		System.out.println("===========================================================================\n"
@@ -83,13 +83,13 @@ public class Asst2TestDriver{
 			try{
 				System.out.println("Loading object inspector: " + args[0]);
 				Asst2TestDriver driver = new Asst2TestDriver(args[0],rec);
-				driver.runTest( new ClassA() );
+				//driver.runTest( new ClassA() );
 				//driver.runTest( new ClassA(12) );
 				//driver.runTest( new ClassB() );
 				//driver.runTest( new ClassD(32) );
 				//driver.runTest( new ClassD() );
 				//driver.runTest( new ClassB[12] );
-				//driver.runTest( new ClassB[12][12] );	
+				driver.runTest( new ClassB[12][12] );	
 				//driver.runTest( "Test String" );
 			}
 			catch(Exception e){
