@@ -19,8 +19,8 @@ got the original code from
 import java.util.*;
 import java.lang.reflect.*;
 
-public class Inspector extends ClassInspector {
-	public Inspector() {}
+public class ObjectInspector extends ClassInspector {
+	public ObjectInspector() {}
     /**
      * Purpose: This is the method that is called at runtime for
      * 			reflection. 
