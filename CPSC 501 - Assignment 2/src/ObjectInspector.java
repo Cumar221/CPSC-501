@@ -36,10 +36,27 @@ public class ObjectInspector{
 		
 		
 		//inspect the current class
+		inspectClass(obj, ObjClass,objectsToInspect);
 		inspectFields(obj, ObjClass,objectsToInspect);
 		
-		if(recursive)
-		    inspectFieldClasses( obj, ObjClass, objectsToInspect, recursive);   
+		//if(recursive)
+		  //  inspectFieldClasses( obj, ObjClass, objectsToInspect, recursive);   
+    }
+    private void inspectClass(Object obj,Class ObjClass,Vector objectsToInspectj){
+    	System.out.println("\n****************** Inspecting declaring class ******************\n");
+    	
+    	System.out.println("Class Name: " + obj.getClass().getName());
+    	
+    	System.out.println("\n****************** Inspecting immediate superclass ******************\n");
+    	
+    	System.out.println("Immediate Super Class: " + obj.getClass().getSuperclass().getName());
+    	
+    	System.out.println("\n****************** Inspecting interfaces the class implements******************\n");
+    	
+    	for ( Class interF : obj.getClass().getInterfaces()) {
+    		System.out.println("Interface: " + interF.getName());
+		}
+    	
     }
     /**
      * 
@@ -67,6 +84,7 @@ public class ObjectInspector{
 			catch(Exception exp) { exp.printStackTrace(); }
 		}
     }
+    
     /**
      * 
      * @param obj
@@ -74,8 +92,7 @@ public class ObjectInspector{
      * @param objectsToInspect
      */
     private void inspectFields(Object obj,Class ObjClass,Vector objectsToInspect){
-    	
-    	System.out.println("****************** Inspecting Fields ******************");
+    	System.out.println("\n****************** Inspecting Fields ******************");
     	if(ObjClass.getDeclaredFields().length >= 1){
     		for (Field f : ObjClass.getDeclaredFields()) {
     			f.setAccessible(true);
