@@ -1,4 +1,4 @@
-Loading object inspector: Inspector
+Loading object inspector: ObjectInspector
 ===========================================================================
 ===========================================================================
 
@@ -928,6 +928,190 @@ NULL
 NULL
 
 ***************************************************
+===========================================================================
+===========================================================================
+
+===========================================================================
+===========================================================================
+
+Running Test: ClassB[]
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+===========================================================================
+===========================================================================
+
+===========================================================================
+===========================================================================
+
+Running Test: ClassB[][]
+inside inspector: ClassB[][] (recursive = true)
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+inside inspector: ClassB[] (recursive = true)
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
 ===========================================================================
 ===========================================================================
 
