@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -5,21 +6,23 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.IdentityHashMap;
+import java.util.List;
 import java.util.Vector;
 import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
 public class Serializer {
-
 	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {
 		myObject obj =  new myObject("Cumar","John","Smith",1991); 
 		serialize(obj);
 	}
 	
-	public static void serialize(Object obj){
+	public static Document serialize(Object obj){
 		Vector objectsToInspect = new Vector<Object>();
 		IdentityHashMap identityHashMap = new IdentityHashMap<>();
 		
@@ -30,15 +33,16 @@ public class Serializer {
 		Document doc = new Document(root);
 		 
 		try {
-			serialize(doc,obj,objectsToInspect, identityHashMap);
+			doc = serializeHelper(doc,obj,objectsToInspect, identityHashMap);
 			inspectFieldClasses(doc, obj, objectsToInspect, identityHashMap);
 		} catch (IllegalArgumentException | IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return doc;
 	}
 	
-	public static void serialize(Document doc, Object obj, Vector objectsToInspect, IdentityHashMap identityHashMap) 
+	public static Document serializeHelper(Document doc, Object obj, Vector objectsToInspect, IdentityHashMap identityHashMap) 
 			throws IllegalArgumentException, IllegalAccessException{
 		try {
 			
@@ -158,6 +162,7 @@ public class Serializer {
 		  } catch (IOException io) {
 			System.out.println(io.getMessage());
 		  }
+		return doc;
 	}
 	public static void inspectFieldClasses(Document doc, Object obj, Vector objectsToInspect, 
 			IdentityHashMap identityHashMap) {
@@ -172,7 +177,7 @@ public class Serializer {
 			Field f = (Field) test;
 			
 			try{
-				serialize(doc, f.get(obj), objectsToInspect, identityHashMap);
+				serializeHelper(doc, f.get(obj), objectsToInspect, identityHashMap);
 			}
 			catch(Exception exp) { exp.printStackTrace(); }
 		}
