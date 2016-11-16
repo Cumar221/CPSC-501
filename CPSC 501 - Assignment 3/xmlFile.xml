@@ -1,15 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<company>
-  <staff id="1">
-    <firstname>Allen</firstname>
-    <lastname>Kim</lastname>
-    <nickname>John</nickname>
-    <salary>200000</salary>
-  </staff>
-  <staff id="2">
-    <firstname>Steve</firstname>
-    <lastname>Smith</lastname>
-    <nickname>Kevin</nickname>
-    <salary>180000</salary>
-  </staff>
-</company>
+<serialized>
+  <Object id="0" class="myObject">
+    <Field name="firstName" declaringClass="myObject">
+      <Value>Cumar</Value>
+    </Field>
+    <Field name="lastName" declaringClass="myObject">
+      <Value>John</Value>
+    </Field>
+    <Field name="middleName" declaringClass="myObject">
+      <Value>Smith</Value>
+    </Field>
+    <Field name="dob" declaringClass="myObject">
+      <Value>1991</Value>
+    </Field>
+    <Field>
+      <Reference>1</Reference>
+    </Field>
+    <Field>
+      <Reference>2</Reference>
+    </Field>
+    <Field>
+      <Reference>3</Reference>
+    </Field>
+  </Object>
+  <Object id="1" class="[C" length="5">
+    <Value>h</Value>
+    <Value>e</Value>
+    <Value>l</Value>
+    <Value>l</Value>
+    <Value>o</Value>
+  </Object>
+  <Object id="2" class="secondObject">
+    <Field name="i" declaringClass="secondObject">
+      <Value>5</Value>
+    </Field>
+  </Object>
+  <Object id="3" class="[LsecondObject;" length="10">
+    <Reference>4</Reference>
+    <Reference>5</Reference>
+    <Reference>6</Reference>
+    <Reference>7</Reference>
+    <Reference>8</Reference>
+    <Reference>9</Reference>
+    <Reference>10</Reference>
+    <Reference>11</Reference>
+    <Reference>12</Reference>
+    <Reference>13</Reference>
+  </Object>
+</serialized>

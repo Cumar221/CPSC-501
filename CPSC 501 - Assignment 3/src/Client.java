@@ -57,7 +57,7 @@ class Client {
         		myObject obj2 = (myObject)ois.readObject();
         		
         		
-        		System.out.println(obj2.name);
+        		System.out.println(obj2.firstName);
         		
         		// cleans up buffer
         		line = inBuffer.readLine();

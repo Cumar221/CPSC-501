@@ -43,7 +43,7 @@ public static void main(String args[]) throws Exception
             
             	clientSentence = "";
             	File file =  new File("outfile.ser");
-            	myObject obj = new myObject("John");
+            	myObject obj = new myObject("Cumar","John","Smith",1991); 
             	FileOutputStream fout = new FileOutputStream(file);
         		ObjectOutputStream oos = new ObjectOutputStream(fout);
         		oos.writeObject(obj);
