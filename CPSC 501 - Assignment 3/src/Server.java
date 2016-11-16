@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import org.jdom2.Document;
 
 public class Server{
 @SuppressWarnings("resource")
@@ -40,10 +41,18 @@ public static void main(String args[]) throws Exception
             	System.out.println("BYE BYE");
             }
             if (clientSentence.contains("send file")){
-            
+
+            	
+            	
             	clientSentence = "";
-            	File file =  new File("outfile.ser");
-            	myObject obj = new myObject("Cumar","John","Smith",1991); 
+            	myObject obj = new myObject(); 
+            	
+            	Document doc = Serializer.serialize(obj);
+            	File file =  new File("outFile.xml");
+            	
+            	Deserializer.deserialize(doc);
+            	
+     
             	FileOutputStream fout = new FileOutputStream(file);
         		ObjectOutputStream oos = new ObjectOutputStream(fout);
         		oos.writeObject(obj);
@@ -68,6 +77,7 @@ public static void main(String args[]) throws Exception
                 } catch (IOException ex) {
                     // Do exception handling
                 }
+      
                 System.out.println("Server Send File Complete");
             }
             capitalizedSentence = clientSentence.toUpperCase() + '\n';

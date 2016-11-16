@@ -12,16 +12,12 @@ import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
 public class Deserializer {
-	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException { 
-		deserialize();
-	}
-	
-	public static void deserialize(){
+	public static void deserialize(Document document){
 		SAXBuilder builder = new SAXBuilder();
 		File xmlFile = new File("xmlfile.xml");	
-		try {
+		
 	
-			Document document = (Document) builder.build(xmlFile);
+			//document = (Document) builder.build(xmlFile);
 			Element rootNode = document.getRootElement();
 			List list = rootNode.getChildren("Object");
 		
@@ -45,11 +41,7 @@ public class Deserializer {
 				}
 			}
 			 
-		  } catch (IOException io) {
-			System.out.println(io.getMessage());
-		  } catch (JDOMException jdomex) {
-			System.out.println(jdomex.getMessage());
-		  }
+		  
 	
 
 	}

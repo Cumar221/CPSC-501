@@ -17,11 +17,6 @@ import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
 public class Serializer {
-	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {
-		myObject obj =  new myObject("Cumar","John","Smith",1991); 
-		serialize(obj);
-	}
-	
 	public static Document serialize(Object obj){
 		Vector objectsToInspect = new Vector<Object>();
 		IdentityHashMap identityHashMap = new IdentityHashMap<>();
@@ -100,6 +95,7 @@ public class Serializer {
 				object.setContent(temp);
 			}
 			for (Field f : obj.getClass().getDeclaredFields()) {
+				f.setAccessible(true);
 				String fieldName = f.getName();
 				String fieldVal = f.get(obj).toString();
 				String fieldDecClass = f.getDeclaringClass().getName();

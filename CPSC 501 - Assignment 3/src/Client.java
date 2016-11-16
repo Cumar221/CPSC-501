@@ -1,5 +1,12 @@
 import java.io.*; 
-import java.net.*; 
+import java.net.*;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.jdom2.Document;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException; 
 
 class Client { 
     public static void main(String args[]) throws Exception 
@@ -38,7 +45,7 @@ class Client {
 	        	outBuffer.writeBytes(line + '\n'); 
 	        	
 	        	// Write input from server to a file				
-	        	File file =  new File("file.ser");
+	        	File file =  new File("inFile.xml");
             	FileOutputStream fout = new FileOutputStream(file);
         		ObjectOutputStream oos = new ObjectOutputStream(fout);
         		
@@ -49,7 +56,7 @@ class Client {
         		oos.writeObject(test.readObject());
         		oos.close();
         		
-        		System.out.println("Done");
+        		System.out.println("Client Send File Done");
         		
         		// Deserialize the file
         		FileInputStream fin =  new FileInputStream(file);
@@ -57,14 +64,16 @@ class Client {
         		myObject obj2 = (myObject)ois.readObject();
         		
         		
-        		System.out.println(obj2.firstName);
+        		System.out.println(obj2.getFirstName());
+        		
         		
         		// cleans up buffer
         		line = inBuffer.readLine();
 
-        		
+        	
         		//close file
         		fin.close();
+        		
 			}else{
 				if(line.equals("logout")){
 					terminated = true;
