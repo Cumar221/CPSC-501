@@ -3,6 +3,7 @@
 #include <mmsystem.h>
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 
@@ -29,21 +30,35 @@ typedef struct  WAV_HEADER
 
 // Function prototypes
 int getFileSize(FILE* inFile);
+void printWave(FILE* wavFile);
 
 int main(int argc, char* argv[])
 {
-	wav_hdr wavHeader;
-	int headerSize = sizeof(wav_hdr), filelength = 0;
-
 	const char* filePath;
-	string input;
+	const char* IRFilePath;
+	const char* OutputFilePath;
+	string DRInput;
+	string IRInput;
+	string Output;
+
 	if (argc <= 1)
 	{
-		cout << "Input wave file name: ";
-		cin >> input;
+		cout << "Input DrySound wave file name: ";
+		cin >> DRInput;
 		cin.get();
-		filePath = input.c_str();
-		//filePath = "DrySounds/Sitar.wav";
+		filePath = DRInput.c_str();
+		
+		
+
+		cout << "Input IR wave file name: ";
+		cin >> IRInput;
+		cin.get();
+		IRFilePath = IRInput.c_str();
+
+		cout << "Give Output wave file name: ";
+		cin >> Output;
+		cin.get();
+		OutputFilePath = Output.c_str();
 	}
 	else
 	{
@@ -53,15 +68,42 @@ int main(int argc, char* argv[])
 
 	
 	FILE* wavFile;
+	FILE* IRWavFile;
+	ofstream fout(OutputFilePath);
 	wavFile = fopen(filePath, "r");
+	IRWavFile = fopen(IRFilePath, "r");
 	
 	if (wavFile == NULL)
 	{
-		fprintf(stderr, "Unable to open wave file: %s\n", filePath);
+		fprintf(stderr, "Unable to open DrySound wave file: %s\n", filePath);
 		return 1;
 	}
+	if (IRWavFile == NULL)
+	{
+		fprintf(stderr, "Unable to open IR wave file: %s\n", IRFilePath);
+		return 1;
+	}
+	if (fout.is_open()) {
+		fout << "This is a line.\n";
+		fout << "This is another line.\n";
+		fout.close();
+	}
+	else cout << "Unable to open output file %s\n" << OutputFilePath  << endl;
 	
-	
+	printWave(wavFile);
+	cout << "\n\n\n\n\n\n";
+	printWave(IRWavFile);
+
+	fclose(wavFile);
+	fclose(IRWavFile);
+	string str;
+	cin >> str;
+	return 0;
+}
+
+void printWave(FILE* wavFile) {
+	wav_hdr wavHeader;
+	int headerSize = sizeof(wav_hdr), filelength = 0;
 	//Read the header
 	size_t bytesRead = fread(&wavHeader, 1, headerSize, wavFile);
 	cout << "Header Read " << bytesRead << " bytes." << endl;
@@ -75,10 +117,10 @@ int main(int argc, char* argv[])
 		while ((bytesRead = fread(buffer, sizeof buffer[0], BUFFER_SIZE / (sizeof buffer[0]), wavFile)) > 0)
 		{
 			/** DO SOMETHING WITH THE WAVE DATA HERE **/
-			for (int i = 0; i < bytesRead; i++) {
-				cout << buffer[i];
-			}
-			cout << endl;
+			//for (int i = 0; i < bytesRead; i++) {
+				//cout << buffer[i];
+			//}
+			//cout << endl;
 			cout << "Read " << bytesRead << " bytes." << endl;
 		}
 		delete[] buffer;
@@ -103,11 +145,7 @@ int main(int argc, char* argv[])
 		cout << "Block align                :" << wavHeader.blockAlign << endl;
 		cout << "Data string                :" << wavHeader.Subchunk2ID[0] << wavHeader.Subchunk2ID[1] << wavHeader.Subchunk2ID[2] << wavHeader.Subchunk2ID[3] << endl;
 	}
-	
-	fclose(wavFile);
-	string str;
-	cin >> str;
-	return 0;
+
 }
 
 // find the file size
