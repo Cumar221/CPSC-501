@@ -1,1 +1,11 @@
-﻿  CPSC - Assignment4.vcxproj -> C:\Users\omar\Git\CPSC-501\CPSC - Assignment4\Debug\CPSC - Assignment4.exe
+﻿  Assignment4_FFT.cpp
+c:\users\omar\git\cpsc-501\cpsc - assignment4\cpsc - assignment4\assignment4_fft.cpp(125): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\omar\git\cpsc-501\cpsc - assignment4\cpsc - assignment4\assignment4_fft.cpp(129): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\omar\git\cpsc-501\cpsc - assignment4\cpsc - assignment4\assignment4_fft.cpp(176): error C2059: syntax error: '='
+c:\users\omar\git\cpsc-501\cpsc - assignment4\cpsc - assignment4\assignment4_fft.cpp(214): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\omar\git\cpsc-501\cpsc - assignment4\cpsc - assignment4\assignment4_fft.cpp(215): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\omar\git\cpsc-501\cpsc - assignment4\cpsc - assignment4\assignment4_fft.cpp(216): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Assignment4_Base.cpp
+c:\users\omar\git\cpsc-501\cpsc - assignment4\cpsc - assignment4\assignment4_base.cpp(124): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Running Code Analysis for C/C++...
+  Generating Code...

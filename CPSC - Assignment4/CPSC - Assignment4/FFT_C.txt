@@ -1,0 +1,68 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 96.50      1.38     1.38        3     0.46     0.46  FFT(float*, int, int)
+  0.70      1.39     0.01        2     0.01     0.01  FFTReadWaveFile(char*, float*)
+  0.70      1.40     0.01        2     0.01     0.01  padding(float*, float*, int, int)
+  0.70      1.41     0.01        1     0.01     0.01  complexMul(float*, float*, float*, int)
+  0.70      1.42     0.01        1     0.01     1.41  FFTConvolve(float*, int, float*, int, float*, int)
+  0.70      1.43     0.01        1     0.01     0.01  FFTWriteWaveFile(char*, float*, int)
+  0.00      1.43     0.00        3     0.00     0.00  std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+  0.00      1.43     0.00        2     0.00     0.00  std::fpos<int>::fpos(long long)
+  0.00      1.43     0.00        1     0.00     0.00  scale(float*, int)
+
+			Call graph
+
+
+granularity: each sample hit covers 4 byte(s) for 0.70% of 1.43 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.00    1.43                 main [1]
+                0.01    1.40       1/1           FFTConvolve(float*, int, float*, int, float*, int) [2]
+                0.01    0.00       2/2           FFTReadWaveFile(char*, float*) [4]
+                0.01    0.00       1/1           FFTWriteWaveFile(char*, float*, int) [7]
+-----------------------------------------------
+                0.01    1.40       1/1           main [1]
+[2]     98.6    0.01    1.40       1         FFTConvolve(float*, int, float*, int, float*, int) [2]
+                1.38    0.00       3/3           FFT(float*, int, int) [3]
+                0.01    0.00       2/2           padding(float*, float*, int, int) [5]
+                0.01    0.00       1/1           complexMul(float*, float*, float*, int) [6]
+                0.00    0.00       1/1           scale(float*, int) [82]
+-----------------------------------------------
+                1.38    0.00       3/3           FFTConvolve(float*, int, float*, int, float*, int) [2]
+[3]     96.5    1.38    0.00       3         FFT(float*, int, int) [3]
+-----------------------------------------------
+                0.01    0.00       2/2           main [1]
+[4]      0.7    0.01    0.00       2         FFTReadWaveFile(char*, float*) [4]
+                0.00    0.00       2/3           std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [80]
+                0.00    0.00       2/2           std::fpos<int>::fpos(long long) [81]
+-----------------------------------------------
+                0.01    0.00       2/2           FFTConvolve(float*, int, float*, int, float*, int) [2]
+[5]      0.7    0.01    0.00       2         padding(float*, float*, int, int) [5]
+-----------------------------------------------
+                0.01    0.00       1/1           FFTConvolve(float*, int, float*, int, float*, int) [2]
+[6]      0.7    0.01    0.00       1         complexMul(float*, float*, float*, int) [6]
+-----------------------------------------------
+                0.01    0.00       1/1           main [1]
+[7]      0.7    0.01    0.00       1         FFTWriteWaveFile(char*, float*, int) [7]
+                0.00    0.00       1/3           std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [80]
+-----------------------------------------------
+                0.00    0.00       1/3           FFTWriteWaveFile(char*, float*, int) [7]
+                0.00    0.00       2/3           FFTReadWaveFile(char*, float*) [4]
+[80]     0.0    0.00    0.00       3         std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) [80]
+-----------------------------------------------
+                0.00    0.00       2/2           FFTReadWaveFile(char*, float*) [4]
+[81]     0.0    0.00    0.00       2         std::fpos<int>::fpos(long long) [81]
+-----------------------------------------------
+                0.00    0.00       1/1           FFTConvolve(float*, int, float*, int, float*, int) [2]
+[82]     0.0    0.00    0.00       1         scale(float*, int) [82]
+-----------------------------------------------
+
+Index by function name
+
+   [6] complexMul(float*, float*, float*, int) [7] FFTWriteWaveFile(char*, float*, int) [5] padding(float*, float*, int, int)
+   [2] FFTConvolve(float*, int, float*, int, float*, int) [3] FFT(float*, int, int) [81] std::fpos<int>::fpos(long long)
+   [4] FFTReadWaveFile(char*, float*) [82] scale(float*, int) [80] std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
